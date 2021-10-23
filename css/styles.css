@@ -141,29 +141,58 @@ img {
 }
 .connect-headers {
   font-style: normal;
+  display: flex;
+  align-items: center;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
   color: var(--connect-text-color);
 }
+
+.connect-headers:hover,
+.connect-headers:focus {
+  color: var(--contact-text-color);
+}
+
+.header-icon {
+  fill: currentColor;
+  margin-right: 10px;
+}
 .header-contact .current {
   color: var(--button-background-color);
 }
-.connect-headers:focus,
+.header-connect:focus,
+.header-connect:hover {
+  color: var(--contact-text-color);
+  fill: var(--contact-text-color);
+}
+.contact-headers:focus,
 .contact-headers:hover {
   color: var(--contact-text-color);
 }
-.connect-headers:focus,
+/* .connect-headers:focus,
 .connect-headers:hover {
   color: var(--contact-text-color);
-}
+} */
 /* ГЕРОЙ -------------------------------------------------*/
 .section-hero {
-  background-color: var(--background-hero-color);
+  /* ограничить секциу до 1600 px чтобы правильно постав фоновую картинку 32минута в Данилка*/
+  /* фон для героя(его размеры) представлены на 37 минуте Данилкаы */
+  /* наложение градиента на фон 54я минута Данилка  */
   text-align: center;
   padding-top: 200px;
   padding-bottom: 200px;
+  background-color: var(--background-hero-color);
+  background-image: linear-gradient(
+      to right,
+      rgba(47, 48, 58, 0.4),
+      rgba(47, 48, 58, 0.4)
+    ),
+    url(../images/hero.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  /* background-size: cover; */
 }
 .hero-title {
   margin: 0 auto 30px;
@@ -194,7 +223,7 @@ img {
 .hero-button {
   cursor: pointer;
 }
-/* КОНТАКТЫ ---------------------------------------------*/
+/* НАШИ ПРЕИМУЩЕСТВА---------------------------------------------*/
 .benefits-title {
   font-weight: 700;
   font-size: 14px;
@@ -213,18 +242,51 @@ img {
   padding: 94px 0;
 }
 .benefits {
+  width: 170px;
+  height: 251px;
   display: flex;
+  margin-right: -30px;
 }
-.benefits .item {
+.benefits .item-benefits {
+  /* flex-basis: calc(100 / 4); */
+  margin-right: 30px;
+  margin-bottom: 94px;
+}
+/* .benefits .item {
   flex-basis: calc(100% / 4);
   margin-right: 30px;
-}
+} */
 .benefits .item:last-child {
   margin-right: 0;
 }
 .benefits-title {
   margin-bottom: 10px;
 }
+/* иконки ----------------- */
+.item-benefits {
+  width: 270px;
+  height: 251px;
+  margin-bottom: 30px;
+}
+.benefit-icon {
+  width: 70px;
+  height: 70px;
+}
+.box-icon {
+  width: 270px;
+  height: 120px;
+  background-color: #f5f4fa;
+  padding: 25px 100px;
+  margin-bottom: 30px;
+  border-radius: 4px;
+}
+.box-icon:hover,
+.box-icon:focus {
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
 /* ЧЕМ МЫ ЗАНИМАЕМСЯ -------------------------------------- */
 .photo-gallery {
   display: flex;
@@ -281,6 +343,7 @@ img {
   line-height: 19px;
   letter-spacing: 0.03em;
   color: var(--description-text-color);
+  margin-bottom: 16px;
 }
 .box-team {
   text-align: center;
@@ -288,7 +351,101 @@ img {
   padding: 30px 0;
   background-color: white;
 }
-/* Портфолио--------------------------------------------- */
+.social-item {
+  width: 44px;
+  height: 44px;
+}
+.social-item + .social-item {
+  margin-left: 10px;
+}
+.social-link {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.social-link:hover,
+.social-link:focus {
+  background-color: #2196f3;
+}
+.social-link:hover .social-icon,
+.social-link:focus .social-icon {
+  fill: #ffffff;
+}
+.social-list {
+  display: flex;
+  justify-content: center;
+}
+.social-icon {
+  width: 20px;
+  height: 20px;
+  fill: #afb1b8;
+}
+/* Постоянные клиенты ----------------------------------- */
+.clients-title {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.16;
+  text-align: center;
+  letter-spacing: 0.03em;
+  color: var(--title-text-color);
+  margin-bottom: 50px;
+}
+.clients-list {
+  flex-basis: calc(100% / 6 - 36px);
+  display: flex;
+}
+/* .client-item {
+  content: '';
+  cursor: pointer;
+} */
+.client-item + .client-item {
+  margin-left: 30px;
+}
+.company-link {
+  display: flex;
+  align-items: center;
+  width: 170px;
+  height: 92px;
+  border-radius: 4px;
+  justify-content: center;
+  color: #afb1b8;
+  border: 1px solid #afb1b8;
+  cursor: pointer;
+}
+.company-icon {
+  fill: currentColor;
+}
+/* ------------------------ */
+/* .company-link {
+  width: 170px;
+  height: 92px;
+  border: 1px solid var(--contact-text-color);
+  border-radius: 4px;
+} */
+/* .company-link:hover,
+.company-link:focus {
+  border-color: var(--contact-text-color);
+}
+.company-link:hover .company-icon,
+.company-link:focus .company-icon {
+  fill: var(--contact-text-color);
+} */
+/* Смотрите при ховере и фокусе на ссылку меняем цвет бордера и иконку
+   чтобы все менялось только на ссылке, задайте для иконки currentColor, 
+   и на ссылке задайте колор, а при ховере и фокусе анимируйте все на ссылке */
+.company-link:hover,
+.company-link:focus {
+  color: var(--contact-text-color);
+  border-color: var(--contact-text-color);
+}
+
+/* ПОРТФОЛИО --------------------------------------------- */
 .button-item:focus,
 .button-item:hover {
   color: var(--button-text-color);
@@ -321,10 +478,17 @@ img {
   margin-left: -30px;
   margin-top: -30px;
 }
-.item-potf {
+.item-portf {
   flex-basis: calc(100% / 3 - 30px);
   margin-left: 30px;
   margin-top: 30px;
+}
+.item-portf:hover,
+.item-portf:focus {
+  border: 1px solid #eeeeee;
+  box-sizing: border-box;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 .project-title {
   font-weight: 700;
@@ -344,6 +508,8 @@ img {
   padding: 20px 24px;
 }
 /* FOOTER------------------------------------------------ */
+/* иконки (для присоеденяйтесь) репета 1 вебинар 1:38 */
+/* иконки Данилко 4е занятие  1:38  */
 .contact-footers {
   font-style: normal;
   font-size: 14px;
@@ -376,3 +542,37 @@ img {
   padding: 60px 0;
   background-color: var(--footers-background-color);
 }
+.footer-conteiner {
+  display: flex;
+  align-items: center;
+}
+.join-title {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+.join {
+  margin-top: 70px;
+  margin-bottom: 102px;
+  margin-left: 70px;
+  margin-right: 881px;
+}
+/* 
+
+«A2» Все векторные изображения (иконки) собраны в SVG-спрайт icons.svg, который лежит в папке images.
+«B1» Для всех иконок используется векторная графика в формате svg.
+«B2» SVG-иконки экспортированы правильно. При экспорте выбрана «группа», а не сам вектор.
+«B3» Все иконки из SVG-спрайта добавлены в HTML при помощи тегов <svg> и <use>
+«B4» Размеры иконок взяты из макета и заданы элементу <svg> в HTML-файле.
+«B5» В блоке Контактов в шапке, добавлены иконки конверта и телефона.
+«B6» В секции Преимуществ добавлены иконки.
+«B8» В секции Клиентов добавлены иконки компаний.
+«B9» В футере добавлены иконки соцсетей. Оформление
+«C2» Фоновое изображение в блоке под хедером не растягивается шире своего оригинального размера 1600рх.
+«C4» В карточках страницы Портфолио есть эффект тени при ховере в любом месте карточки.
+«C6» При ховере или фокусе, иконки должны переходить в активное состояние - изменять цвет, если это указано в макете.
+ */
